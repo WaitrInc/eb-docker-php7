@@ -49,6 +49,6 @@ RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local
 
 WORKDIR /var/www/html
 
-EXPOSE 9000 9001 9002 9003 9004 9005 9006 9007 9008 9009 9010
+#EXPOSE 9000 9001 9002 9003 9004 9005 9006 9007 9008 9009 9010
 
 CMD ["/usr/bin/supervisord", "-n"]
