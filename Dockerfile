@@ -5,7 +5,6 @@ ENV DEBIAN_FRONTEND noninteractive
 COPY config/custom.ini /usr/local/etc/php/conf.d/
 COPY config/supervisord.conf /etc/supervisor/conf.d/supervisord.conf
 COPY config/php-fpm.conf /etc/supervisor.d/php-fpm.conf
-COPY config/php-fpm.override /etc/init/php-fpm.override
 
 RUN apt-get clean && apt-get update && apt-get install -y zlib1g-dev libicu-dev libpq-dev libfreetype6 wget gdebi libmagickwand-dev libmagickcore-dev imagemagick python-pip python-dev supervisor \
     --no-install-recommends --fix-missing \
@@ -50,4 +49,5 @@ RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local
 
 WORKDIR /var/www/html
 
+CMD ["killall", "-9", "php-fpm"]
 CMD ["/usr/bin/supervisord", "-n"]
