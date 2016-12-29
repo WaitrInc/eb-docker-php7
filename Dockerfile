@@ -1,4 +1,4 @@
-FROM php:7.0.3-fpm
+FROM php:7.1.0-fpm
 
 ENV DEBIAN_FRONTEND noninteractive
 
