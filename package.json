@@ -1,0 +1,19 @@
+{
+  "name": "eb-docker-php-7",
+  "version": "0.0.1",
+  "description": "Waitr PHP 7 docker image",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/WaitrInc/eb-docker-php7.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/WaitrInc/eb-docker-php7/issues"
+  },
+  "homepage": "https://github.com/WaitrInc/eb-docker-php7#readme"
+}
