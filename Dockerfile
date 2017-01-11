@@ -220,7 +220,7 @@ VOLUME /usr/local/etc/php/conf.d
 VOLUME /etc/supervisor/conf.d
 VOLUME /usr/local/etc/php-fpm.d
 
-EXPOSE 9000 9001 9002 9003 9004 9005 9006 9007 9008 9009 9010
+EXPOSE 9000 9001 9002 9003 9004 9005 9006 9007 9008 9009 9010 9011
 
 #this is done to kill the initial run of php-fpm
 #from the inherited docker container
