@@ -24,6 +24,7 @@ RUN echo 'zend_extension="/usr/local/lib/php/extensions/no-debug-non-zts-2015101
 RUN echo 'xdebug.remote_port=9001' >> /usr/local/etc/php/php.ini
 RUN echo 'xdebug.remote_enable=1' >> /usr/local/etc/php/php.ini
 RUN echo 'xdebug.remote_connect_back=1' >> /usr/local/etc/php/php.ini
+RUN echo 'xdebug.remote_host=172.254.254.254' >> /usr/local/etc/php/php.ini
 
 RUN wget https://github.com/wkhtmltopdf/wkhtmltopdf/releases/download/0.12.2.1/wkhtmltox-0.12.2.1_linux-jessie-amd64.deb
 RUN gdebi --n wkhtmltox-0.12.2.1_linux-jessie-amd64.deb
