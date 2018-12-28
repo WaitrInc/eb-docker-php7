@@ -1,2 +1,2 @@
 #!/bin/bash
-docker build --no-cache -t waitr/eb-docker-php-7 .
+docker build --no-cache -t ajlozier/eb-docker-php-7 .

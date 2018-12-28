@@ -25,7 +25,7 @@ RUN echo 'xdebug.remote_port=9000' >> /usr/local/etc/php/php.ini
 RUN echo 'xdebug.remote_enable=1' >> /usr/local/etc/php/php.ini
 RUN echo 'xdebug.remote_connect_back=1' >> /usr/local/etc/php/php.ini
 
-RUN wget http://download.gna.org/wkhtmltopdf/0.12/0.12.2.1/wkhtmltox-0.12.2.1_linux-jessie-amd64.deb
+RUN wget https://github.com/wkhtmltopdf/wkhtmltopdf/releases/download/0.12.2.1/wkhtmltox-0.12.2.1_linux-jessie-amd64.deb
 RUN gdebi --n wkhtmltox-0.12.2.1_linux-jessie-amd64.deb
 
 RUN mkdir -p /var/log/php-app
