@@ -19,6 +19,12 @@ RUN apt-get clean && apt-get update && apt-get install -y zlib1g-dev libicu-dev 
     #&& docker-php-ext-enable imagick
     && echo "extension=imagick.so" > /usr/local/etc/php/conf.d/ext-imagick.ini
 
+RUN pecl install xdebug-2.5.5 && docker-php-ext-enable xdebug
+RUN echo 'zend_extension="/usr/local/lib/php/extensions/no-debug-non-zts-20151012/xdebug.so"' >> /usr/local/etc/php/php.ini
+RUN echo 'xdebug.remote_port=9000' >> /usr/local/etc/php/php.ini
+RUN echo 'xdebug.remote_enable=1' >> /usr/local/etc/php/php.ini
+RUN echo 'xdebug.remote_connect_back=1' >> /usr/local/etc/php/php.ini
+
 RUN wget http://download.gna.org/wkhtmltopdf/0.12/0.12.2.1/wkhtmltox-0.12.2.1_linux-jessie-amd64.deb
 RUN gdebi --n wkhtmltox-0.12.2.1_linux-jessie-amd64.deb
 
