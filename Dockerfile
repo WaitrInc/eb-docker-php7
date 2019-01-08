@@ -11,6 +11,7 @@ RUN apt-get clean && apt-get update && apt-get install -y zlib1g-dev libicu-dev 
     && docker-php-ext-install pdo_mysql \
     && docker-php-ext-install pdo_pgsql \
     && docker-php-ext-install zip \
+    && docker-php-ext-install sockets \
     ## APCu
     && pecl install apcu \
     && docker-php-ext-enable apcu \
@@ -26,7 +27,7 @@ RUN echo 'xdebug.idekey=IDEA_DEBUG' >> /usr/local/etc/php/php.ini
 RUN echo 'xdebug.remote_port=9001' >> /usr/local/etc/php/php.ini
 RUN echo 'xdebug.remote_enable=1' >> /usr/local/etc/php/php.ini
 RUN echo 'xdebug.remote_connect_back=0' >> /usr/local/etc/php/php.ini
-RUN echo 'xdebug.remote_autostart=0' >> /usr/local/etc/php/php.ini
+RUN echo 'xdebug.remote_autostart=1' >> /usr/local/etc/php/php.ini
 RUN echo 'xdebug.remote_handler=dbgb' >> /usr/local/etc/php/php.ini
 RUN echo 'xdebug.remote_host=10.254.254.254' >> /usr/local/etc/php/php.ini
 
