@@ -11,9 +11,6 @@ RUN apt-get clean && apt-get update && apt-get install -y zlib1g-dev libicu-dev 
     && docker-php-ext-install pdo_mysql \
     && docker-php-ext-install pdo_pgsql \
     && docker-php-ext-install zip \
-    && docker-php-ext-install sockets \
-    && docker-php-ext-install xdebug \
-    && docker-php-ext-enable xdebug \
     ## APCu
     && pecl install apcu \
     && docker-php-ext-enable apcu \
@@ -22,7 +19,7 @@ RUN apt-get clean && apt-get update && apt-get install -y zlib1g-dev libicu-dev 
     #&& docker-php-ext-enable imagick
     && echo "extension=imagick.so" > /usr/local/etc/php/conf.d/ext-imagick.ini
 
-#RUN pecl install xdebug-2.5.5 && docker-php-ext-enable xdebug
+RUN pecl install xdebug-2.5.5 && docker-php-ext-enable xdebug
 RUN echo 'zend_extension="/usr/local/lib/php/extensions/no-debug-non-zts-20151012/xdebug.so"' >> /usr/local/etc/php/php.ini
 #RUN echo 'xdebug.idekey=IDEA_DEBUG' >> /usr/local/etc/php/php.ini
 #RUN echo 'xdebug.default_enable=0' >> /usr/local/etc/php/php.ini
@@ -31,7 +28,7 @@ RUN echo 'xdebug.remote_enable=1' >> /usr/local/etc/php/php.ini
 RUN echo 'xdebug.remote_connect_back=0' >> /usr/local/etc/php/php.ini
 RUN echo 'xdebug.remote_autostart=1' >> /usr/local/etc/php/php.ini
 #RUN echo 'xdebug.remote_handler=dbgb' >> /usr/local/etc/php/php.ini
-#RUN echo 'xdebug.remote_host=10.254.254.254' >> /usr/local/etc/php/php.ini
+RUN echo 'xdebug.remote_host=10.254.254.254' >> /usr/local/etc/php/php.ini
 
 RUN wget https://github.com/wkhtmltopdf/wkhtmltopdf/releases/download/0.12.2.1/wkhtmltox-0.12.2.1_linux-jessie-amd64.deb
 RUN gdebi --n wkhtmltox-0.12.2.1_linux-jessie-amd64.deb
