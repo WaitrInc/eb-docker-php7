@@ -1,2 +1,2 @@
 #!/bin/bash
-docker push ajlozier/eb-docker-php-7
+docker push waitr/eb-docker-php-7
