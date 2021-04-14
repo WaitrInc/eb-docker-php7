@@ -1,13 +1,26 @@
-FROM php:7.0.33-fpm
+FROM php:7.4.16-fpm
 
 ENV DEBIAN_FRONTEND noninteractive
 COPY config/custom.ini /usr/local/etc/php/conf.d/
 
-RUN apt-get clean && apt-get update && apt-get install -y zlib1g-dev libicu-dev libpq-dev libfreetype6 wget gdebi libmagickwand-dev libmagickcore-dev imagemagick \
-    --no-install-recommends \
-    && docker-php-ext-install opcache \
+RUN apt-get clean \
+    && apt-get update \
+    && apt-get install -y --no-install-recommends \
+        zlib1g-dev \
+        libicu-dev \
+        libpq-dev \
+        libfreetype6 \
+        wget \
+        gdebi \
+        libmagickwand-dev \
+        libmagickcore-dev \
+        imagemagick \
+        libzip-dev
+
+
+RUN docker-php-ext-install opcache \
     && docker-php-ext-install intl \
-    && docker-php-ext-install mbstring \
+    # && docker-php-ext-install mbstring \
     && docker-php-ext-install pdo_mysql \
     && docker-php-ext-install pdo_pgsql \
     && docker-php-ext-install zip \
